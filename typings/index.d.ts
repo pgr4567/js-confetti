@@ -23,7 +23,7 @@ interface IAddConfettiConfig {
 declare class JSConfetti {
     constructor(jsConfettiConfig?: IJSConfettiConfig);
 
-    addConfetti(confettiConfigs?: IAddConfettiConfig[]): Promise<void>;
+    addConfetti(confettiConfigs: IAddConfettiConfig[]): Promise<void>;
     clearCanvas(): void;
     destroyCanvas(): void;
 }
