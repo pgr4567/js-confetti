@@ -4,21 +4,26 @@
 export default JSConfetti
 
 interface IJSConfettiConfig {
-  canvas?: HTMLCanvasElement,
+    canvas?: HTMLCanvasElement,
 }
 
 interface IAddConfettiConfig {
-  confettiRadius?: number,
-  confettiNumber?: number,
-  confettiColors?: string[],
-  emojis?: string[],
-  emojiSize?: number,
+    confettiRadius?: number,
+    confettiNumber?: number,
+    confettiColors?: string[],
+    confettiPosition?: IPosition,
+    confettiDirection?: TConfettiDirection,
+
+    // emojis could be used as confetti
+    // confettiColors will be ignored if emojis array provided
+    emojis?: string[],
+    emojiSize?: number,
 }
 
 declare class JSConfetti {
-  constructor(jsConfettiConfig?: IJSConfettiConfig);
+    constructor(jsConfettiConfig?: IJSConfettiConfig);
 
-  addConfetti(confettiConfig?: IAddConfettiConfig): Promise<void>;
-  clearCanvas(): void;
-  destroyCanvas(): void;
+    addConfetti(confettiConfigs?: IAddConfettiConfig[]): Promise<void>;
+    clearCanvas(): void;
+    destroyCanvas(): void;
 }

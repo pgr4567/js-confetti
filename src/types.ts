@@ -1,6 +1,6 @@
 interface I2DCoordinates {
-  x: number,
-  y: number,
+    x: number,
+    y: number,
 }
 
 
@@ -23,7 +23,7 @@ type TConfettiDirection = 'left' | 'right'
  * Arguments object for JSConfetti constructor
  */
 interface IJSConfettiConfig {
-  canvas?: HTMLCanvasElement,
+    canvas?: HTMLCanvasElement,
 }
 
 
@@ -31,30 +31,27 @@ interface IJSConfettiConfig {
  * Arguments object for addConfetti() method
  */
 interface IAddConfettiConfig {
-  confettiRadius?: number,
-  confettiNumber?: number,
-  confettiColors?: string[],
+    confettiRadius?: number,
+    confettiNumber?: number,
+    confettiColors?: string[],
+    confettiPosition?: IPosition,
+    confettiDirection?: TConfettiDirection,
 
-  // emojis could be used as confetti
-  // confettiColors will be ignored if emojis array provided
-  emojis?: string[],
-  emojiSize?: number,
-
-  // @deprecated: wrong plural forms were used
-  emojies?: string[],
-  confettiesNumber?: number,
+    // emojis could be used as confetti
+    // confettiColors will be ignored if emojis array provided
+    emojis?: string[],
+    emojiSize?: number,
 }
 
 
-type INormalizedAddConfettiConfig = Required<Omit<IAddConfettiConfig, 'emojies' | 'confettiesNumber'>>
-
+type INormalizedAddConfettiConfig = Required<Omit<IAddConfettiConfig, 'emojies' | 'confettiesNumber' | 'confettiPosition' | 'confettiDirection'>>
 
 export {
-  IPosition,
-  IRadius,
-  ISpeed,
-  TConfettiDirection,
-  IJSConfettiConfig,
-  IAddConfettiConfig,
-  INormalizedAddConfettiConfig,
+    IPosition,
+    IRadius,
+    ISpeed,
+    TConfettiDirection,
+    IJSConfettiConfig,
+    IAddConfettiConfig,
+    INormalizedAddConfettiConfig,
 }
